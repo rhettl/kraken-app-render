@@ -1,0 +1,7 @@
+{>"layouts/email" /}
+
+{<body}
+
+  <p>This is a test email message</p>
+
+{/body}
