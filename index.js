@@ -28,31 +28,7 @@ app.on('start', function () {
   console.log('Application ready to serve requests.');
   console.log('Environment: %s', app.kraken.get('env:env'));
 
-  /* To test that the same thing happens without my email extension,
-   * uncomment below and comment `emailCtrl.init();`
-   */
 
   email.config(app, app.kraken);
   emailCtrl.init();
-  //console.log(app.get('view').length);
-  //renderTest(app);
 });
-
-
-
-
-function renderTest(app) {
-  app.render('emails/test', {
-    subject: 'test subject'
-  }, function(err, res){
-    console.log('... Email sent with:');
-    if (err) {
-      console.log('an error');
-      console.error(err.stack);
-      throw err;
-    } else {
-      console.log('no errors, ');
-      console.log(res);
-    }
-  });
-}
