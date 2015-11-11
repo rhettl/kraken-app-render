@@ -2,6 +2,6 @@
 
 {<body}
 
-  <p>This is a test email message</p>
+  <p>This is a test email message. {@pre type="content" key="greeting"/}</p>
 
 {/body}

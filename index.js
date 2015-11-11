@@ -18,8 +18,6 @@ options = {
      * Add any additional config setup or overrides here. `config` is an initialized
      * `confit` (https://github.com/krakenjs/confit/) configuration object.
      */
-
-    email.config(app, config.get("mailtransport"));
     next(null, config);
   }
 };
@@ -30,11 +28,13 @@ app.on('start', function () {
   console.log('Application ready to serve requests.');
   console.log('Environment: %s', app.kraken.get('env:env'));
 
-  emailCtrl.init();
-
   /* To test that the same thing happens without my email extension,
    * uncomment below and comment `emailCtrl.init();`
    */
+
+  email.config(app, app.kraken);
+  emailCtrl.init();
+  //console.log(app.get('view').length);
   //renderTest(app);
 });
 
